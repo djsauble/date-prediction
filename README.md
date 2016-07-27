@@ -1,5 +1,3 @@
-# Predict future values based on historical data
-
 Given an array of timeseries data ordered from oldest to
 newest, predict when a future value is likely to be hit.
 
