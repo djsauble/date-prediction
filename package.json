@@ -1,6 +1,6 @@
 {
   "name": "date-prediction",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Daniel Sauble",
   "description": "Given a set of timeseries data, predict when a future value will occur",
   "keywords": [
