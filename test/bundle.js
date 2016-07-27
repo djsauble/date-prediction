@@ -320,7 +320,7 @@ if (typeof exports !== 'undefined') {
 }());
 
 },{}],4:[function(require,module,exports){
-var predict = require('../date-prediction');
+var predict = require('../index');
 
 QUnit.test( 'Predict increase where none expected', function(assert) {
   var date, last;
@@ -423,4 +423,4 @@ QUnit.test( 'Predict increase type correctly', function(assert) {
   assert.deepEqual(date, prediction, 'Linear increase detected');
 });
 
-},{"../date-prediction":1}]},{},[4]);
+},{"../index":1}]},{},[4]);

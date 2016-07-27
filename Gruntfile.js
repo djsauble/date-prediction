@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
     // JSHint configuration options
     jshint: {
-      all: ['Gruntfile.js', 'date-prediction.js', 'test/tests.js']
+      all: ['Gruntfile.js', 'index.js', 'test/tests.js']
     },
 
     // Specify test locations for QUnit
@@ -14,10 +14,6 @@ module.exports = function(grunt) {
 
     // Configuration for browserify
     browserify: {
-      library: {
-        src: 'date-prediction.js',
-        dest: 'index.js'
-      },
       tests: {
         src: 'test/tests.js',
         dest: 'test/bundle.js'
@@ -34,6 +30,5 @@ module.exports = function(grunt) {
   // $ grunt # executes jshint, browserify, qunit
   // $ grunt test # runs qunit task, only
   grunt.registerTask('default', ['jshint', 'browserify', 'qunit']);
-  grunt.registerTask('install', 'browserify');
-  grunt.registerTask('test', 'qunit');
+  grunt.registerTask('test', ['browserify', 'qunit']);
 };

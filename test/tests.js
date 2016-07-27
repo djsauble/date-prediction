@@ -1,4 +1,4 @@
-var predict = require('../date-prediction');
+var predict = require('../index');
 
 QUnit.test( 'Predict increase where none expected', function(assert) {
   var date, last;
