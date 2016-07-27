@@ -1,0 +1,22 @@
+{
+  "name": "date-prediction",
+  "version": "0.0.1",
+  "author": "Daniel Sauble",
+  "description": "Given a set of timeseries data, predict when a future value will occur",
+  "keywords": [
+    "timeseries",
+    "date",
+    "regression"
+  ],
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "browserify": "*",
+    "grunt": "*",
+    "grunt-browserify": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-qunit": "*"
+  },
+  "dependencies": {
+    "regression": "*"
+  }
+}
