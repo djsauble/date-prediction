@@ -1,6 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var regression = require('regression');
-
 /**
  * Given an array of timeseries data ordered from oldest to
  * newest, predict when a future value is likely to be hit.
@@ -21,6 +19,8 @@ var regression = require('regression');
  *
  * The output is a Date, or null if no prediction can be made.
  */
+var regression = require('regression');
+
 var predict = function(futureValue, series) {
   var actualTrend,
       polynomialPrediction,
@@ -28,7 +28,7 @@ var predict = function(futureValue, series) {
 
   // Try to fit the trend with a second-degree polynomial
   actualTrend = regression('polynomial', series.map(function(w) {
-    return [w.timestamp.getTime(), w.value];
+    return [(new Date(w.timestamp)).getTime(), w.value];
   }), 2).equation;
   if (actualTrend[2]) {
     var a = actualTrend[0],
@@ -43,7 +43,7 @@ var predict = function(futureValue, series) {
 
   // Try to fit the trend with a linear equation
   actualTrend = regression('linear', series.map(function(w) {
-    return [w.timestamp.getTime(), w.value];
+    return [(new Date(w.timestamp)).getTime(), w.value];
   })).equation;
   linearPrediction = (futureValue - actualTrend[1]) / actualTrend[0];
 

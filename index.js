@@ -27,7 +27,7 @@ var predict = function(futureValue, series) {
 
   // Try to fit the trend with a second-degree polynomial
   actualTrend = regression('polynomial', series.map(function(w) {
-    return [w.timestamp.getTime(), w.value];
+    return [(new Date(w.timestamp)).getTime(), w.value];
   }), 2).equation;
   if (actualTrend[2]) {
     var a = actualTrend[0],
@@ -42,7 +42,7 @@ var predict = function(futureValue, series) {
 
   // Try to fit the trend with a linear equation
   actualTrend = regression('linear', series.map(function(w) {
-    return [w.timestamp.getTime(), w.value];
+    return [(new Date(w.timestamp)).getTime(), w.value];
   })).equation;
   linearPrediction = (futureValue - actualTrend[1]) / actualTrend[0];
 
